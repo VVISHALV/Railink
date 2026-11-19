@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Railink</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="panel">
+        <h1 class="logo" aria-label="Railink">
+          <span class="logo-pre">Rai</span><span class="logo-mid">L</span><span class="logo-post">ink</span>
+        </h1>
+        <div class="what-is-info">
+          <button class="info-btn" aria-label="What is Railink" title="Click for more info">
+            <span class="info-icon">ℹ</span>
+            <span class="info-text">What is Railink?</span>
+          </button>
+          <div class="info-tooltip">
+            <p><strong>Direct seat not available?</strong> No problem! Railink stitches together available vacancies from different seats and time slots to build a complete journey plan.</p>
+            <p><strong>Example:</strong> Instead of waiting for a direct seat, you can travel in S2 - 5(Station A -> B) and S4 - 11(Station B -> C) to reach your destination.</p>
+          </div>
+        </div>
+        <p class="sub">Waitlisted? No direct seats available? Stitch available vacancies and finish your journey after chart preparation.</p>
+
+        <form id="search-form" class="grid">
+          <label>
+            Train Number
+            <input name="trainNo" placeholder="Eg:12607,20636" required />
+          </label>
+
+          <label>
+            Journey Date
+            <input name="jDate" type="date" required />
+          </label>
+
+          <label>
+            From Station
+            <select name="source" id="boarding-select" required disabled>
+              <option value="">Load train data first</option>
+            </select>
+          </label>
+
+          <label>
+            To Station
+            <select name="destination" id="destination-select" required disabled>
+              <option value="">Load train data first</option>
+            </select>
+          </label>
+
+          <label>
+            Class
+            <select name="cls" id="class-select" required disabled>
+              <option value="">Load train data first</option>
+            </select>
+          </label>
+
+          <label>
+            Remote Station
+            <select name="remoteStation" id="remote-station-select" required disabled>
+              <option value="">Load train data first</option>
+            </select>
+          </label>
+
+          <label>
+            Chart Type
+            <select name="chartType" id="chart-type-select" required disabled>
+              <option value="">Load train data first</option>
+            </select>
+          </label>
+
+          <button type="submit">Analyze Vacancy</button>
+        </form>
+      </section>
+
+      <section class="panel output" id="output" hidden>
+        <div id="stitched"></div>
+        <div id="direct"></div>
+      </section>
+
+      <form id="feedback-form" class="feedback-bar" aria-label="Submit feedback">
+        <label class="feedback-label" for="feedback-input">Feedback</label>
+        <input
+          id="feedback-input"
+          name="feedback"
+          type="text"
+          maxlength="500"
+          placeholder="Share your feedback about Railink..."
+          required
+        />
+        <button type="submit" class="feedback-btn">Send</button>
+        <p id="feedback-status" class="feedback-status" aria-live="polite"></p>
+      </form>
+    </main>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
